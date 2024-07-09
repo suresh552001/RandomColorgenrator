@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Color Generator</title>
+    <style>
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .color-box {
+            width: 200vh;
+            height: 80vh;
+            margin: 20px auto;
+            border: 2px solid #333;
+            cursor: pointer;
+        }
+        #ram{
+            border: solid;
+            border-radius: 6px;
+            margin: 20px;
+            padding: 10px;
+            padding-left: 70px;
+            padding-right: 70px;
+            font-size: 20px;
+           font-style: oblique;
+           font-weight: bolder;
+           color: aliceblue;
+           background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="colorBox" class="color-box" onclick="changeColor()"></div>
+        <button id="ram" onclick="changeColor()">Generate Random Color</button>
+    </div>
+
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function changeColor() {
+            const colorBox = document.getElementById('colorBox');
+            const newColor = getRandomColor();
+            colorBox.style.backgroundColor = newColor;
+        }
+    </script>
+</body>
+</html>
+
+
